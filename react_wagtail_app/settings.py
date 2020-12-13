@@ -30,6 +30,8 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(" ")
 # Application definition
 
 INSTALLED_APPS = [
+    'react_wagtail_app.core',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,3 +143,5 @@ MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = '/media/'
 
 WAGTAIL_SITE_NAME = 'My Project'
+
+AUTH_USER_MODEL = 'core.User'
