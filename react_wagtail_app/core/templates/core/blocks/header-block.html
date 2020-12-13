@@ -1,0 +1,5 @@
+{% load core_tags %}
+
+<{{ self.style }} class="heading-block {% if self.centered %}heading-block--centered{% endif %}" id="{{ self.text|slugify }}">
+  {{ self.text|custom_bleach:"i,sup,sub"  }}
+</{{ self.style }}>
