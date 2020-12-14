@@ -30,6 +30,8 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(" ")
 # Application definition
 
 INSTALLED_APPS = [
+    'wagtail.api.v2',
+    'rest_framework',
     'react_wagtail_app.core',
 
     'django_bleach',
