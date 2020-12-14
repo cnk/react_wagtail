@@ -1,4 +1,3 @@
-from django.db import models
 from rest_framework import serializers
 
 from wagtail.api import APIField
@@ -9,6 +8,7 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 
 from .blocks import HeadingBlock
 from .faq import FAQBlock
+
 
 class BasicPage(Page):
     body = StreamField([

@@ -6,6 +6,7 @@ from django.utils.safestring import mark_safe
 
 register = template.Library()
 
+
 @register.filter(name='custom_bleach')
 def custom_bleach(value, allowed_tags):
     """

@@ -1,5 +1,4 @@
 from django.db import models
-from rest_framework.fields import Field
 from wagtail.core import blocks
 from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import FieldPanel
@@ -28,7 +27,7 @@ class FAQBlock(blocks.StructBlock):
         form_classname = 'faq-block struct-block'
         label = 'FAQ List'
         icon = 'doc-full-inverse'
-        template='core/blocks/faq.html'
+        template = 'core/blocks/faq.html'
 
     def get_items(self, value):
         return FAQ.objects.live().order_by('view_count')[:value['show']]

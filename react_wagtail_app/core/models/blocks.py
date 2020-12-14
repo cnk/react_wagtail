@@ -25,4 +25,3 @@ class HeadingBlock(blocks.StructBlock):
         template = 'core/blocks/header-block.html'
         form_classname = 'section-title struct-block'
         icon = 'fa-header'
-
