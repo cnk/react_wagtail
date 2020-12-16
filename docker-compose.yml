@@ -27,5 +27,22 @@ services:
       - POSTGRES_USER=react_wagtail
       - POSTGRES_PASSWORD=react_wagtail
 
+  frontend:
+    build:
+      context: .
+      dockerfile: ./compose/local/node/Dockerfile
+    image: react_wagtail_app_frontend
+    container_name: rw_frontend
+    command: yarn start
+    volumes:
+      - .:/app
+      # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
+      - /app/frontend/node_modules
+    ports:
+      - 3000:3000
+    depends_on:
+      - web
+    stdin_open: true
+
 volumes:
   postgres_data:
