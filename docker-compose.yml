@@ -44,5 +44,21 @@ services:
       - web
     stdin_open: true
 
+  storybook:
+    build:
+      context: .
+      dockerfile: ./compose/local/node/Dockerfile
+    image: react_wagtail_app_storybook
+    container_name: rw_storybook
+    command: yarn storybook
+    volumes:
+      - .:/app
+      - /app/frontend/node_modules
+    ports:
+      - 6006:6006
+    depends_on:
+      - web
+    stdin_open: true
+
 volumes:
   postgres_data:
