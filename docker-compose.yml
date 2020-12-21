@@ -37,7 +37,7 @@ services:
     volumes:
       - .:/app
       # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
-      - /app/frontend/node_modules
+      - node_modules:/app/frontend/node_modules
     ports:
       - 3000:3000
     depends_on:
@@ -53,7 +53,7 @@ services:
     command: yarn storybook
     volumes:
       - .:/app
-      - /app/frontend/node_modules
+      - node_modules:/app/frontend/node_modules
     ports:
       - 6006:6006
     depends_on:
@@ -62,3 +62,4 @@ services:
 
 volumes:
   postgres_data:
+  node_modules:
