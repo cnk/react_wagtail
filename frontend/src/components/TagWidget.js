@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import '../index.scss';
 
 class TagWidget extends React.Component {
   constructor(props) {
