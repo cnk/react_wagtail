@@ -10,6 +10,7 @@ services:
     command: /start
     volumes:
       - .:/app
+      - media:/app/media
     ports:
       - 8000:8000
     env_file:
@@ -61,5 +62,6 @@ services:
     stdin_open: true
 
 volumes:
+  media:
   postgres_data:
   node_modules:
