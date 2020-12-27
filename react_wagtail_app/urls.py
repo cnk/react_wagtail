@@ -21,13 +21,16 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
-from react_wagtail_app.core.api import cms_api_router
+from core.api import cms_api_router
+from blog.api import blog_router
+
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
     path('admin/', include(wagtailadmin_urls)),
 
     path('api/', cms_api_router.urls),
+    path('api/blog/', include(blog_router.urls)),
 
     path('documents/', include(wagtaildocs_urls)),
     # For anything not caught by a more specific rule above, hand over to Wagtail's serving mechanism

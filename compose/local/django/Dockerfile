@@ -7,7 +7,7 @@ RUN apt-get update \
 # dependencies for building Python packages
 && apt-get install -y build-essential \
 # psycopg2 dependencies
-&& apt-get install -y libpq-dev \
+&& apt-get install -y libpq-dev postgresql-client \
 # Translations dependencies
 && apt-get install -y gettext \
 # Additional dependencies
@@ -17,7 +17,7 @@ RUN apt-get update \
 && rm -rf /var/lib/apt/lists/*
 
 # Requirements are installed here to ensure they will be cached.
-COPY ./requirements.txt /requirements.txt
+COPY ./react_wagtail_app/requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 
 COPY ./compose/local/django/entrypoint.sh /entrypoint
@@ -26,6 +26,6 @@ RUN chmod +x /entrypoint
 COPY ./compose/local/django/start.sh /start
 RUN chmod +x /start
 
-WORKDIR /app
+WORKDIR /app/react_wagtail_app
 
 ENTRYPOINT ["/entrypoint"]
