@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 class TagWidget extends React.Component {
@@ -42,5 +43,21 @@ class TagWidget extends React.Component {
     );
   }
 }
+
+TagWidget.propTypes = {
+  /**
+   * Comma seperated list of strings; the strings are the tag names
+   */
+  tags: PropTypes.array,
+  /**
+   * Show a loading spinner until this value becomes false
+   */
+  loading: PropTypes.bool,
+}
+
+TagWidget.defaultProps = {
+  tags: [],
+  loading: true,
+};
 
 export { TagWidget };
