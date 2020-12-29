@@ -18,7 +18,7 @@ RUN apt-get update \
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./react_wagtail_app/requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
+RUN pip install --upgrade pip && pip install -r /requirements.txt
 
 COPY ./compose/local/django/entrypoint.sh /entrypoint
 RUN chmod +x /entrypoint

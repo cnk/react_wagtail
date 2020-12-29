@@ -1,0 +1,10 @@
+DEBUG=1
+SECRET_KEY='randome_key'
+DJANGO_ALLOWED_HOSTS=*
+
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=react_wagtail_dev
+SQL_USER=react_wagtail
+SQL_PASSWORD=CHANGE_ME
+SQL_HOST=db
+SQL_PORT=5432
