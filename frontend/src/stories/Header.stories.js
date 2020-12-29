@@ -5,9 +5,12 @@ import { Header } from './Header';
 export default {
   title: 'Example/Header',
   component: Header,
-  onLogin: { action: 'Logged In!' },
-  onLogout: { action: 'Bye Bye' },
-  onCreateAccount: { action: 'Welcome' },
+  // parameters: { actions: { argTypesRegex: '^on.*' } },
+  argTypes: {
+    onLogin: { action: 'Logged In!' },
+    onLogout: { action: 'Bye Bye' },
+    onCreateAccount: { action: 'Welcome' },
+  }
 };
 
 const Template = (args) => <Header {...args} />;
