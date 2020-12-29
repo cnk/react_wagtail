@@ -9,12 +9,12 @@ export default {
 
 const Template = (args) => <ImageText {...args} />;
 
-export const TextRight = Template.bind({});
-TextRight.args = {
+export const TextLeft = Template.bind({});
+TextLeft.args = {
   value: mockImageTextData,
 };
 
-export const TextLeft = Template.bind({});
-TextLeft.args = {
+export const TextRight = Template.bind({});
+TextRight.args = {
   value: {...mockImageTextData, reverse: true },
 };

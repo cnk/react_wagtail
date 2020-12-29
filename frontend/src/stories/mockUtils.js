@@ -6,6 +6,18 @@ import cardImage3 from "./assets/images/frizbee.jpg"
 import cardImage4 from "./assets/images/kellog.jpg"
 import cardImage5 from "./assets/images/parsons-gates.jpg"
 
+// mockAxios is supplied from the caller; dependency injection
+const mockTag = (mockAxios) => {
+  const API_REQUEST = "/api/blog/tags/";
+  mockAxios.onGet(API_REQUEST).reply(200, {
+    results: [
+      {slug: "django", name: "Django"},
+      {slug: "react", name: "React"},
+      {slug: "wagtail", name: "Wagtail"},
+    ],
+  });
+};
+
 const richtext1 = `
 <p>Wagtail has been born out of many years of experience building websites, learning approaches that work and ones that don’t,
 and striking a balance between power and simplicity, structure and flexibility. We hope you’ll find that Wagtail is in that sweet spot.</p>
@@ -78,19 +90,19 @@ const mockStreamFieldData = [
   },
 ];
 
-export { mockImageCarouselItems, mockImageTextData, mockStreamFieldData, mockThumbnailGalleryData };
-
-
-// mockAxios is supplied from the caller; dependency injection
-const mockTag = (mockAxios) => {
-  const API_REQUEST = "/api/blog/tags/";
-  mockAxios.onGet(API_REQUEST).reply(200, {
-    results: [
-      {slug: "django", name: "Django"},
-      {slug: "react", name: "React"},
-      {slug: "wagtail", name: "Wagtail"},
-    ],
+const mockPost = (mockAxios) => {
+  mockAxios.onGet(`/api/pages/3/`).reply(200, {
+    id: 1,
+    title: "Love React 1",
+    excerpt: "category: programming",
+    header_image_url: {
+      url: cardImage,
+    },
+    // py datetime.strftime('%s000')
+    pub_date: 1597720114000,
+    body: mockStreamFieldData,
   });
 };
 
-export { mockTag };
+
+export { mockImageCarouselItems, mockImageTextData, mockPost, mockStreamFieldData, mockTag, mockThumbnailGalleryData };

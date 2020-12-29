@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 class TagWidget extends React.Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -12,13 +14,21 @@ class TagWidget extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
+
     axios.get("/api/blog/tags/").then((res) => {
       const tags = res.data.results;
-      this.setState({
-        tags,
-        loading: false
-      });
+      if (this._isMounted) {
+        this.setState({
+          tags,
+          loading: false
+        });
+      }
     });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {
