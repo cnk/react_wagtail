@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Container, Row, Col } from "react-bootstrap";
 import { sanitize } from 'dompurify';
 
@@ -18,3 +19,17 @@ function ImageText(props) {
 }
 
 export { ImageText };
+
+ImageText.propTypes = {
+  /**
+   *  'value' is an object containing an image (with url) and some text.
+   *  'value.reverse' controls whether the image is before the text or after.
+   */
+  value: PropTypes.shape(
+    {
+      reverse: PropTypes.bool,
+      text: PropTypes.string.isRequired,
+      image: PropTypes.shape({ url: PropTypes.string.isRequired }).isRequired,
+    }
+  ).isRequired,
+};

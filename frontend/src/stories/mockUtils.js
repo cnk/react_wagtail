@@ -11,23 +11,35 @@ const richtext1 = `
 and striking a balance between power and simplicity, structure and flexibility. We hope you’ll find that Wagtail is in that sweet spot.</p>
 `;
 
-const mockImageCarouselData = {
-  type: "image_carousel",
-  value: [
-    {
-      url: cardImage4,
-      alt: "Card 4",
-    },
-    {
-      url: cardImage3,
-      alt: "Card 3",
-    },
-    {
-      url: cardImage2,
-      alt: "Card 2",
-    },
-  ]
+const mockImageCarouselItems = [
+  {
+    url: cardImage4,
+    alt: "Card 4",
+  },
+  {
+    url: cardImage3,
+    alt: "Card 3",
+  },
+  {
+    url: cardImage2,
+    alt: "Card 2",
+  }
+];
+
+const mockImageTextData = {
+  image: {
+    url: cardImage,
+  },
+  text: `<div class="rich-text"><p><b>Wagtail</b> CMS's multi-site feature is awesome! Client's can edit the content of different sites in an efficient way.</p></div>`,
 };
+
+const mockThumbnailGalleryData = [
+  { url: cardImage, },
+  { url: cardImage2, },
+  { url: cardImage3, },
+  { url: cardImage4, },
+  { url: cardImage5, },
+];
 
 const mockStreamFieldData = [
   {
@@ -40,37 +52,11 @@ const mockStreamFieldData = [
   },
   {
     type: "thumbnail_gallery",
-    value: [
-      {
-        url: cardImage,
-      },
-      {
-        url: cardImage2,
-      },
-      {
-        url: cardImage3,
-      },
-      {
-        url: cardImage4,
-      },
-      {
-        url: cardImage5,
-      },
-    ],
+    value: mockThumbnailGalleryData,
   },
   {
     type: "image_carousel",
-    value: [
-      {
-        url: cardImage4,
-      },
-      {
-        url: cardImage3,
-      },
-      {
-        url: cardImage2,
-      },
-    ],
+    value: mockImageCarouselItems,
   },
   {
     type: "h2",
@@ -79,26 +65,20 @@ const mockStreamFieldData = [
   {
     type: "image_text",
     value: {
-      image: {
-        url: cardImage,
-      },
-      text: `<div class="rich-text"><p><b>Wagtail</b> CMS's multi-site feature is awesome! Client's can edit the content of different sites in an efficient way.</p></div>`,
+      ...mockImageTextData,
       reverse: true,
     },
   },
   {
     type: "image_text",
     value: {
-      image: {
-        url: cardImage4,
-      },
-      text: `<div class="rich-text"><p><b>Wagtail</b> CMS makes it easy for content editors to crop and resize images on the fly.</p></div>`,
+      ...mockImageTextData,
       reverse: false,
     },
   },
 ];
 
-export { mockImageCarouselData, mockStreamFieldData };
+export { mockImageCarouselItems, mockImageTextData, mockStreamFieldData, mockThumbnailGalleryData };
 
 
 // mockAxios is supplied from the caller; dependency injection

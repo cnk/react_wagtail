@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Container } from "react-bootstrap";
 
-function ThumbnailGallery(props) { 
+function ThumbnailGallery(props) {
   return (
     <Container>
       <div className="row text-center text-lg-left">
@@ -10,14 +11,27 @@ function ThumbnailGallery(props) {
             <a
             href={imageItem.url} className="d-block mb-4 h-100" target="_blank"
             rel="noopener noreferrer"
-            > 
+            >
               <img className="img-fluid img-thumbnail" src={imageItem.url} alt="" />
-            </a> 
+            </a>
           </div>
-        ))} 
+        ))}
       </div>
-    </Container> 
+    </Container>
   );
 }
 
 export { ThumbnailGallery };
+
+ThumbnailGallery.propTypes = {
+  /**
+   *  The only prop we need is an array of carousel item objects
+   */
+  value: PropTypes.arrayOf(
+    PropTypes.shape({ url: PropTypes.string.isRequired })
+  ).isRequired,
+};
+
+ThumbnailGallery.defaultProps = {
+  value: [],
+};

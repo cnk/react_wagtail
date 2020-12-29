@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageCarousel } from "../components/StreamField/ImageCarousel";
-import { mockImageCarouselData } from "./mockUtils";
+import { mockImageCarouselItems } from "./mockUtils";
 
 export default {
   title: "ImageCarousel",
@@ -11,5 +11,5 @@ const Template = (args) => <ImageCarousel {...args} />;
 
 export const PlainCarousel = Template.bind({});
 PlainCarousel.args = {
-  value: mockImageCarouselData.value,
+  value: mockImageCarouselItems,
 };
