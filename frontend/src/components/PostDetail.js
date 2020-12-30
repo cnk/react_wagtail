@@ -14,8 +14,9 @@ class PostDetail extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
+    const pk = this.props.match.params.id;
 
-    axios.get(`/api/pages/3/`).then((res) => {
+    axios.get(`/api/pages/${pk}/`).then((res) => {
       const post = res.data;
       if (this._isMounted) {
         this.setState({

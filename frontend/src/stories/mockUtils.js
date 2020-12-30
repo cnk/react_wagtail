@@ -91,7 +91,7 @@ const mockStreamFieldData = [
 ];
 
 const mockPost = (mockAxios) => {
-  mockAxios.onGet(`/api/pages/3/`).reply(200, {
+  mockAxios.onGet(`/api/pages/1/`).reply(200, {
     id: 1,
     title: "Love React 1",
     excerpt: "category: programming",

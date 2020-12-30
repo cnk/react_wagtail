@@ -42,6 +42,3 @@ the docs are only showing that one input parament. Refactor my
 components so they take named arguments and then do the unpacking of
 `props.value` before calling each of them. I will probably do most of
 this in the giant if block in `StreamField.js`
-
-2. Install the package that allows you to insert django route lookups
-in your JS.

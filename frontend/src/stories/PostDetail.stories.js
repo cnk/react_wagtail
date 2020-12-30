@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
+import { MemoryRouter } from "react-router-dom";
+import { Route } from "react-router";
 import { PostDetail } from "../components/PostDetail";
 
 import axios from "axios";
@@ -18,7 +20,9 @@ export const Example = () => {
   return (
     <Container>
       <Row>
-        <PostDetail />
+        <MemoryRouter initialEntries={["/post/1"]}>
+          <Route path="/post/:id" component={PostDetail} />
+        </MemoryRouter>
       </Row>
     </Container>
   );
