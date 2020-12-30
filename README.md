@@ -42,3 +42,15 @@ the docs are only showing that one input parament. Refactor my
 components so they take named arguments and then do the unpacking of
 `props.value` before calling each of them. I will probably do most of
 this in the giant if block in `StreamField.js`
+
+
+## Errata
+
+Section 16.5 in the code for `frontend/src/components/PostPage.js`, define
+PostDetail as `<PostDetail {...this.props} />` so that section 17.4 works
+before you move to section 17.5 (where the PostPage is updated to pass props).
+
+
+## Study Questions
+
+1. Which components are defined as React.Components and which as pure functions? Why?
