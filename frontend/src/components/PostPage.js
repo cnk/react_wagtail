@@ -8,17 +8,18 @@ import { PostDetail } from "./PostDetail";
 
 class PostPage extends React.Component {
   render() {
-    return ( <div>
-               <TopNav/>
-               <Container>
-                 <Row>
-                   <PostDetail {...this.props}/>
-                   <SideBar/>
-                 </Row>
-               </Container>
-               <Footer/>
-             </div>
-           );
+    return (
+      <div>
+        <TopNav/>
+        <Container>
+          <Row>
+            <PostDetail {...this.props}/>
+            <SideBar/>
+         </Row>
+        </Container>
+        <Footer/>
+      </div>
+    );
   }
 }
 

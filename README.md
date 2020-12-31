@@ -46,9 +46,19 @@ this in the giant if block in `StreamField.js`
 
 ## Errata
 
-Section 16.5 in the code for `frontend/src/components/PostPage.js`, define
+* Section 16.5 in the code for `frontend/src/components/PostPage.js`, define
 PostDetail as `<PostDetail {...this.props} />` so that section 17.4 works
 before you move to section 17.5 (where the PostPage is updated to pass props).
+
+* A couple of the story examples in chapter 17 have `mockPost();` and omit
+setting up the axios mock. You still need the following setup when you need
+to mock data returned from an AJAX call:
+
+```javascript
+const mock = new MockAdapter(axios);
+mockPost(mock);
+mockTag(mock);
+```
 
 
 ## Study Questions

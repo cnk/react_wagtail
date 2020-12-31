@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { sanitize } from 'dompurify';
 
 import { ThumbnailGallery } from "./ThumbnailGallery";
@@ -36,5 +37,17 @@ function StreamField(props) {
 
   return html;
 }
+
+StreamField.propTypes = {
+  /*
+   * An array of objects, each of which has a type and a value.
+   * The type is the name of the Wagtail Block and the value is the JSON API representation of that block
+   */
+  value: PropTypes.array
+};
+
+StreamField.defaultProps = {
+  value: []
+};
 
 export { StreamField }

@@ -102,6 +102,95 @@ const mockPost = (mockAxios) => {
     pub_date: 1597720114000,
     body: mockStreamFieldData,
   });
+
+  mockAxios.onGet(`/api/pages/2/`).reply(200, {
+    id: 1,
+    title: "Love React 2",
+    excerpt: "tag: react",
+    header_image_url: {
+      url: cardImage,
+    },
+    // py datetime.strftime('%s000')
+    pub_date: 1597720114000,
+    body: [
+      {
+        type: "image_carousel",
+        value: mockImageCarouselItems,
+      }],
+  });
+
+  mockAxios.onGet(`/api/pages/3/`).reply(200, {
+    id: 3,
+    title: "Love React 3",
+    excerpt: "category: programming",
+    header_image_url: {
+      url: cardImage,
+    },
+    // py datetime.strftime('%s000')
+    pub_date: 1597720114002,
+    body: mockStreamFieldData,
+  });
+
+  mockAxios.onGet(`/api/pages/4/`).reply(200, {
+    id: 4,
+    title: "Love React 4",
+    excerpt: "tag: react",
+    header_image_url: {
+      url: cardImage,
+    },
+    // py datetime.strftime('%s000')
+    pub_date: 1597720114002,
+    body: mockStreamFieldData,
+  });
+
+  mockAxios
+    .onGet(`/api/blog/posts/?limit=2&offset=0&category=*&tag=*`)
+    .reply(200, {
+      results: [{ id: 1 }, { id: 2 }],
+      count: 4,
+    });
+
+  mockAxios
+    .onGet(`/api/blog/posts/?limit=2&offset=2&category=*&tag=*`)
+    .reply(200, {
+      results: [{ id: 3 }, { id: 4 }],
+      count: 4,
+    });
+
+  mockAxios
+    .onGet(`/api/blog/posts/?limit=2&offset=0&category=*&tag=react`)
+    .reply(200, {
+      results: [{ id: 2 }, { id: 4 }],
+      count: 2,
+    });
+
+  mockAxios
+    .onGet(`/api/blog/posts/?limit=2&offset=0&category=*&tag=wagtail`)
+    .reply(200, {
+      results: [],
+      count: 0,
+    });
+
+  mockAxios
+    .onGet(`/api/blog/posts/?limit=2&offset=0&category=*&tag=django`)
+    .reply(200, {
+      results: [],
+      count: 0,
+    });
+
+  mockAxios
+    .onGet(`/api/blog/posts/?limit=2&offset=0&category=programming&tag=*`)
+    .reply(200, {
+      results: [{ id: 1 }, { id: 3 }],
+      count: 2,
+    });
+
+  mockAxios
+    .onGet(`/api/blog/posts/?limit=2&offset=0&category=life&tag=*`)
+    .reply(200, {
+      results: [],
+      count: 0,
+    });
 };
 
 

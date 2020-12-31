@@ -1,17 +1,17 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { MemoryRouter } from "react-router-dom";
-import { Route } from "react-router";
-import { PostDetail } from "../components/PostDetail";
+import { PostPageCard } from "../components/PostPageCard";
 
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter"
 import { mockPost } from "./mockUtils";
 
 export default {
-  title: "PostDetail",
-  component: PostDetail,
+  title: "PostPageCard",
+  component: PostPageCard,
 };
+
 
 export const Example = () => {
   const mock = new MockAdapter(axios);
@@ -20,9 +20,11 @@ export const Example = () => {
   return (
     <Container>
       <Row>
-        <MemoryRouter initialEntries={["/post/1/"]}>
-          <Route path="/post/:id" component={PostDetail} />
-        </MemoryRouter>
+        <Col md={8}>
+          <MemoryRouter>
+            <PostPageCard postPk={1} />
+          </MemoryRouter>
+        </Col>
       </Row>
     </Container>
   );

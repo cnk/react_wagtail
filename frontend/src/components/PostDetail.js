@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import axios from "axios";
 import { StreamField } from "./StreamField/StreamField";
 
@@ -9,7 +10,8 @@ class PostDetail extends React.Component {
     super(props);
     this.state = {
       post: [],
-      loading: true, };
+      loading: true,
+    };
   }
 
   componentDidMount() {
@@ -47,5 +49,28 @@ class PostDetail extends React.Component {
     }
   }
 }
+
+PostDetail.propTypes = {
+  /**
+   * Post object with a header_image, title, and body
+   */
+  post: PropTypes.shape(
+    {
+      header_image: PropTypes.shape({url: PropTypes.string}),
+      title: PropTypes.string,
+      body: PropTypes.array,
+    }
+  ),
+  /**
+   * Show a loading spinner until this value becomes false
+   */
+  loading: PropTypes.bool,
+};
+
+PostDetail.defaultProps = {
+  post: {},
+  loading: true,
+};
+
 
 export { PostDetail };
