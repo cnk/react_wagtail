@@ -1,27 +1,27 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { MemoryRouter } from "react-router-dom";
-import { TagWidget } from "../components/TagWidget";
+import { CategoryWidget } from "../components/CategoryWidget";
 
 import axios from "axios"
 import MockAdapter from "axios-mock-adapter";
-import { mockTag } from "./mockUtils";
+import { mockCategory } from "./mockUtils";
 
 export default {
-  title: "TagWidget",
-  component: TagWidget,
+  title: "CategoryWidget",
+  component: CategoryWidget,
 };
 
 export const Example = () => {
   const mock = new MockAdapter(axios);
-  mockTag(mock);
+  mockCategory(mock);
 
   return (
     <MemoryRouter>
       <Container>
         <Row>
           <Col md={4}>
-            <TagWidget />
+            <CategoryWidget />
           </Col>
         </Row>
       </Container>

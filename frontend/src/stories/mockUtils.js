@@ -18,6 +18,16 @@ const mockTag = (mockAxios) => {
   });
 };
 
+const mockCategory = (mockAxios) => {
+  const API_REQUEST = "/api/blog/categories/";
+  mockAxios.onGet(API_REQUEST).reply(200, {
+    results: [
+      {slug: "programming", name: "Programming"},
+      {slug: "life", name: "Life"},
+    ],
+  });
+};
+
 const richtext1 = `
 <p>Wagtail has been born out of many years of experience building websites, learning approaches that work and ones that don’t,
 and striking a balance between power and simplicity, structure and flexibility. We hope you’ll find that Wagtail is in that sweet spot.</p>
@@ -104,7 +114,7 @@ const mockPost = (mockAxios) => {
   });
 
   mockAxios.onGet(`/api/pages/2/`).reply(200, {
-    id: 1,
+    id: 2,
     title: "Love React 2",
     excerpt: "tag: react",
     header_image_url: {
@@ -193,5 +203,4 @@ const mockPost = (mockAxios) => {
     });
 };
 
-
-export { mockImageCarouselItems, mockImageTextData, mockPost, mockStreamFieldData, mockTag, mockThumbnailGalleryData };
+export { mockCategory, mockImageCarouselItems, mockImageTextData, mockPost, mockStreamFieldData, mockTag, mockThumbnailGalleryData };

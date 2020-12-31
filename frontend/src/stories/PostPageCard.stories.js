@@ -12,7 +12,6 @@ export default {
   component: PostPageCard,
 };
 
-
 export const Example = () => {
   const mock = new MockAdapter(axios);
   mockPost(mock);

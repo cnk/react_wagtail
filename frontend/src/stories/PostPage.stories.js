@@ -5,7 +5,7 @@ import { PostPage } from "../components/PostPage";
 
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter"
-import { mockPost, mockTag } from "./mockUtils";
+import { mockPost, mockTag, mockCategory } from "./mockUtils";
 
 export default {
   title: "PostPage",
@@ -16,6 +16,7 @@ export const Example1 = () => {
   const mock = new MockAdapter(axios);
   mockPost(mock);
   mockTag(mock);
+  mockCategory(mock);
 
   return (
     <MemoryRouter initialEntries={["/post/1/"]}>
@@ -30,6 +31,7 @@ export const Example2 = () => {
   const mock = new MockAdapter(axios);
   mockPost(mock);
   mockTag(mock);
+  mockCategory(mock);
 
   return (
     <MemoryRouter initialEntries={["/post/2/"]}>

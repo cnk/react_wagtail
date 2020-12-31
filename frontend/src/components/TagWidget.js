@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 class TagWidget extends React.Component {
@@ -37,9 +38,9 @@ class TagWidget extends React.Component {
       content = 'Loading...';
     } else {
       content = this.state.tags.map((tag) => (
-        <a href={`/tag/${tag.slug}`} key={tag.slug}>
+        <Link to={`/tag/${tag.slug}`} key={tag.slug}>
           <span className="badge badge-secondary">{tag.name}</span>{" "}
-        </a>
+        </Link>
       ))
     }
 
@@ -56,9 +57,14 @@ class TagWidget extends React.Component {
 
 TagWidget.propTypes = {
   /**
-   * Comma seperated list of strings; the strings are the tag names
+   * Comma seperated list of tag objects; Each tag has a name and a slug
    */
-  tags: PropTypes.array,
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ),
   /**
    * Show a loading spinner until this value becomes false
    */
