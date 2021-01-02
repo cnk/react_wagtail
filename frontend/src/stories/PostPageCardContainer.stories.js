@@ -27,6 +27,7 @@ export const Pagination = () => {
       <Row>
         <MemoryRouter initialEntries={["/"]}>
           <Switch>
+            <Route path="/category/:category/:page([\d]+)?" component={PostPageCardContainer}/>
             <Route path="/tag/:tag/:page([\d]+)?" component={PostPageCardContainer}/>
             <Route path="/:page([\d]+)?" component={PostPageCardContainer}/>
           </Switch>
@@ -45,6 +46,7 @@ export const TagFilter = () => {
       <Row>
         <MemoryRouter initialEntries={["/tag/react"]}>
           <Switch>
+            <Route path="/category/:category/:page([\d]+)?" component={PostPageCardContainer}/>
             <Route path="/tag/:tag/:page([\d]+)?" component={PostPageCardContainer}/>
             <Route path="/:page([\d]+)?" component={PostPageCardContainer}/>
           </Switch>
@@ -52,4 +54,24 @@ export const TagFilter = () => {
       </Row>
     </Container>
   );
+};
+
+export const CategoryFilter = () => {
+  const mock = new MockAdapter(axios);
+  mockPost(mock);
+
+  return (
+    <Container>
+      <Row>
+        <MemoryRouter initialEntries={["/category/programming"]}>
+          <Switch>
+            <Route path="/category/:category/:page([\d]+)?" component={PostPageCardContainer}/>
+            <Route path="/tag/:tag/:page([\d]+)?" component={PostPageCardContainer}/>
+            <Route path="/:page([\d]+)?" component={PostPageCardContainer}/>
+          </Switch>
+        </MemoryRouter>
+      </Row>
+    </Container>
+  );
+
 };

@@ -37,18 +37,11 @@ class CategoryWidget extends React.Component {
     if (this.state.loading) {
       content = 'Loading...';
     } else {
-      content = <div className="row">
-                  <div className="col-lg-12">
-                    <ul className="list-unstyled mb-0">
-                      {this.state.categories.map((category) => (
-                        <li key={category.slug}>
-                          <Link to={`/category/${category.slug}`}>
-                            {category.name}
-                          </Link>
-                        </li> ))}
-                    </ul>
-                  </div>
-                </div>
+      content = this.state.categories.map((category) => (
+        <Link to={`/category/${category.slug}`} key={category.slug}>
+          <span className="badge badge-secondary">{category.name}</span>{" "}
+        </Link>
+      ))
     }
 
     return (

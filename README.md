@@ -19,7 +19,10 @@ This should give you 4 containers:
 
 2. **rw-web** - the Django/Wagtail application. This will be available in
    your browser as `http://localhost:8000`. It also has a persistant
-   volume for the media directory: `react_wagtail_media`
+   volume for the media directory: `react_wagtail_media`. The Wagtail admin
+   can be found at `http://localhost:8000/admin/` and the Django admin at
+   `http://localhost:8000/django-admin/`. You will need to create a superuser
+   to access either of those. Inside rw-web, run `./manage.py createsuperuser`
 
 3. **rw-frontend** - the NodeJS container that builds the ReactApp for
    you when you change files. This will be available in your browser
