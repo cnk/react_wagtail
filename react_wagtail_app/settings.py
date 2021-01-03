@@ -154,3 +154,10 @@ MEDIA_URL = '/media/'
 WAGTAIL_SITE_NAME = 'My Project'
 
 AUTH_USER_MODEL = 'core.User'
+
+HEADLESS_PREVIEW_CLIENT_URLS = {
+    "default": "http://localhost:3000/",
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r'^/api/v2/'

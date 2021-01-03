@@ -17,7 +17,7 @@ class PostPageCard extends React.Component {
   componentDidMount() {
     this._isMounted = true;
 
-    axios.get(`/api/pages/${this.props.postPk}/`).then((res) => {
+    axios.get(`/api/v2/pages/${this.props.postPk}/`).then((res) => {
       if (this._isMounted) {
         this.setState({
           data: res.data,

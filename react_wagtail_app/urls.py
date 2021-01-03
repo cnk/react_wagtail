@@ -29,7 +29,7 @@ urlpatterns = [
     path('django-admin/', admin.site.urls),
     path('admin/', include(wagtailadmin_urls)),
 
-    path('api/', cms_api_router.urls),
+    path('api/v2/', cms_api_router.urls),
     path('api/blog/', include(blog_router.urls)),
 
     path('documents/', include(wagtaildocs_urls)),

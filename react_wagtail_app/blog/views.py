@@ -6,11 +6,16 @@ from .serializers import CategorySerializer, PostPageSerializer, TagSerializer
 
 
 class PostPageSet(viewsets.ReadOnlyModelViewSet):
+    '''
+    This viewset is used for the PostPageCardContainer component.
+
+    The PostPageCard and PostDetail components use the Wagtail PagesAPIViewSet
+    '''
     serializer_class = PostPageSerializer
-    queryset = PostPage.objects.all()
+    queryset = PostPage.objects.live().all()
 
     def get_queryset(self):
-        queryset = PostPage.objects.all()
+        queryset = PostPage.objects.live().all()
         category = self.request.query_params.get("category", None)
         tag = self.request.query_params.get("tag", None)
         if category is not None and category != "*":

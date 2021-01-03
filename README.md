@@ -68,6 +68,12 @@ inside a JSON object with the main key being 'results'. However, the actual API
 I created served the tags, categories, and posts as bare lists. Updated viewsets
 to match the structure my React code was expecting.
 
+* The preview url on page 138 isn't correct. The wagtail-headless-preview package
+does not use the page's primary key but instead creates a database record with a
+token and content type and uses that to lookup the data for the page preview. I
+used the README on https://github.com/torchbox/wagtail-headless-preview to get my
+preview working.
+
 
 ## Study Questions
 

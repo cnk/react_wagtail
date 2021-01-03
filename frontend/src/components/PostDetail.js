@@ -18,15 +18,37 @@ class PostDetail extends React.Component {
     this._isMounted = true;
     const pk = this.props.match.params.id;
 
-    axios.get(`/api/pages/${pk}/`).then((res) => {
-      const post = res.data;
-      if (this._isMounted) {
-        this.setState({
-          post,
-          loading: false
-        });
-      };
+    // convert querystring to dict
+    const querystring = this.props.location.search.replace(/^\?/, '');
+    const params = {};
+    querystring.replace(/([^=&]+)=([^&]*)/g, function (m, key, value) {
+      params[decodeURIComponent(key)] = decodeURIComponent(value);
     });
+
+    if (params.token) {
+      // preview
+      // And no we didn't make a mistake hard coding the pk - the page_preview API endpoint does not use the page PK
+      let apiUrl = '/api/v2/page_preview/1/?content_type=' + encodeURIComponent(params['content_type']) + '&token=' + encodeURIComponent(params['token']) + '&format=json';
+      axios.get(apiUrl).then((res) => {
+        const post = res.data;
+        if (this._isMounted) {
+          this.setState({
+            post,
+            loading: false
+          });
+        };
+      });
+    } else {
+      axios.get(`/api/v2/pages/${pk}/`).then((res) => {
+        const post = res.data;
+        if (this._isMounted) {
+          this.setState({
+            post,
+            loading: false
+          });
+        };
+      });
+    }
   }
 
   componentWillUnmount() {

@@ -101,7 +101,7 @@ const mockStreamFieldData = [
 ];
 
 const mockPost = (mockAxios) => {
-  mockAxios.onGet(`/api/pages/1/`).reply(200, {
+  mockAxios.onGet(`/api/v2/pages/1/`).reply(200, {
     id: 1,
     title: "Love React 1",
     excerpt: "category: programming",
@@ -113,7 +113,7 @@ const mockPost = (mockAxios) => {
     body: mockStreamFieldData,
   });
 
-  mockAxios.onGet(`/api/pages/2/`).reply(200, {
+  mockAxios.onGet(`/api/v2/pages/2/`).reply(200, {
     id: 2,
     title: "Love React 2",
     excerpt: "tag: react",
@@ -129,7 +129,7 @@ const mockPost = (mockAxios) => {
       }],
   });
 
-  mockAxios.onGet(`/api/pages/3/`).reply(200, {
+  mockAxios.onGet(`/api/v2/pages/3/`).reply(200, {
     id: 3,
     title: "Love React 3",
     excerpt: "category: programming",
@@ -141,7 +141,7 @@ const mockPost = (mockAxios) => {
     body: mockStreamFieldData,
   });
 
-  mockAxios.onGet(`/api/pages/4/`).reply(200, {
+  mockAxios.onGet(`/api/v2/pages/4/`).reply(200, {
     id: 4,
     title: "Love React 4",
     excerpt: "tag: react",
