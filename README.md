@@ -63,6 +63,11 @@ mockPost(mock);
 mockTag(mock);
 ```
 
+* All the Storybook code (and mocks) is built assuming the APIs return the data
+inside a JSON object with the main key being 'results'. However, the actual API
+I created served the tags, categories, and posts as bare lists. Updated viewsets
+to match the structure my React code was expecting.
+
 
 ## Study Questions
 
