@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, wait} from "@testing-library/react";
+import { render, screen, waitFor} from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import axios from "axios";
 
@@ -26,8 +26,8 @@ test('render Tag widget with AJAX data', async () => {
   );
   expect(screen.getByText("Loading...")).toBeInTheDocument();
 
-  await wait(() => expect(axios.get).toHaveBeenCalled());
-  await wait(() => expect(screen.getByText("Wagtail")).toBeInTheDocument());
+  await waitFor(() => expect(axios.get).toHaveBeenCalled());
+  await waitFor(() => expect(screen.getByText("Wagtail")).toBeInTheDocument());
 
   // Check the text is in the context we expect
   const el = screen.getByText("Wagtail");
